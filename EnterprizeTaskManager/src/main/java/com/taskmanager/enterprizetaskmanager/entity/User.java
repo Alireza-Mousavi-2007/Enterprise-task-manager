@@ -35,7 +35,7 @@ public class User implements UserDetails {
     private String password;
 
     @Column(name = "user_isEnabled")
-    private boolean enabled;
+    private boolean enabled = true;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
