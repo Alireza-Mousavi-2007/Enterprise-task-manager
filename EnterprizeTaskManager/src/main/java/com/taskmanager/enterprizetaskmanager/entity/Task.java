@@ -13,7 +13,6 @@ public class Task {
 
     @Id
     @Column(name = "task_id", unique = true)
-    @NotBlank(message = "task id can't be empty")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
