@@ -1,14 +1,22 @@
 package com.taskmanager.enterprizetaskmanager.dto;
 
+import com.taskmanager.enterprizetaskmanager.entity.Role;
+import com.taskmanager.enterprizetaskmanager.entity.User;
+
+import java.util.Set;
+
 public class UserDTO {
     private String username;
     private String email;
     private String password;
 
-    public UserDTO(String username, String email, String password) {
+    private Set<Role> role;
+
+    public UserDTO(String username, String email, String password, Set<Role> role) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public String getUsername() {
@@ -33,5 +41,13 @@ public class UserDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<Role> getRole() {
+        return role;
+    }
+
+    public void setRole(Set<Role> role) {
+        this.role = role;
     }
 }

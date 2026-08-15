@@ -1,12 +1,15 @@
 package com.taskmanager.enterprizetaskmanager.dto;
 
 import com.taskmanager.enterprizetaskmanager.enums.priority;
+import com.taskmanager.enterprizetaskmanager.enums.status;
 
 import java.time.LocalDateTime;
 
 public class TaskDTO {
 
     private String title;
+
+    private status status;
 
     private priority priority;
 
@@ -19,6 +22,13 @@ public class TaskDTO {
 
     public TaskDTO(String title, com.taskmanager.enterprizetaskmanager.enums.priority priority, LocalDateTime dueDate) {
         this.title = title;
+        this.priority = priority;
+        this.dueDate = dueDate;
+    }
+
+    public TaskDTO(String title, com.taskmanager.enterprizetaskmanager.enums.status status, com.taskmanager.enterprizetaskmanager.enums.priority priority, LocalDateTime dueDate) {
+        this.title = title;
+        this.status = status;
         this.priority = priority;
         this.dueDate = dueDate;
     }
@@ -45,5 +55,13 @@ public class TaskDTO {
 
     public void setDueDate(LocalDateTime dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public com.taskmanager.enterprizetaskmanager.enums.status getStatus() {
+        return status;
+    }
+
+    public void setStatus(com.taskmanager.enterprizetaskmanager.enums.status status) {
+        this.status = status;
     }
 }

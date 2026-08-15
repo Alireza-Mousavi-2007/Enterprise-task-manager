@@ -13,7 +13,7 @@ public interface TaskService {
     public Task addTAsk(TaskDTO  taskDTO);
 
     public Task getTaskById(Integer id);
-    
+
 
     public List<Task> getAllTAsks();
 
