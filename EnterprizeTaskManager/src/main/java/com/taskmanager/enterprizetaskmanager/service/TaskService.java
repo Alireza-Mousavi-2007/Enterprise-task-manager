@@ -14,18 +14,12 @@ public interface TaskService {
 
     public Task getTaskById(Integer id);
 
-
     public List<Task> getAllTAsks();
 
     public Task updateTask(Integer taskId , TaskDTO taskDTO);
 
-
     public Task updateTAskStatus(Integer taskId, status status);
 
-
     public void deleteTask(Integer id);
-
-
-
 
 }

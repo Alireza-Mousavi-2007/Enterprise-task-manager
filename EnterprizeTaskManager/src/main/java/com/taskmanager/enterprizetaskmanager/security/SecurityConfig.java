@@ -5,9 +5,9 @@ import com.taskmanager.enterprizetaskmanager.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,6 +18,7 @@ import org.springframework.security.web.access.ExceptionTranslationFilter;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Bean
@@ -38,7 +39,7 @@ public class SecurityConfig {
         security.csrf(csrf -> csrf.disable());
 
         security.authorizeHttpRequests(sfc -> {
-            sfc.requestMatchers("TODO !!!!!!!!!!!!!!!").permitAll();
+            sfc.requestMatchers("/api/auth/**").permitAll();
             sfc.anyRequest().authenticated();
         });
 
@@ -50,6 +51,7 @@ public class SecurityConfig {
     }
 
 
+    @Bean
     public AuthenticationManager authenticationManager(UserServiceImpl user) {
 
         var auth = new DaoAuthenticationProvider(user);

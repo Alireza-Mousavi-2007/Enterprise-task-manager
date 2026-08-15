@@ -12,15 +12,21 @@ public interface UserService extends UserDetailsService {
 
     public User addUser(UserDTO userDTO);
 
+    public User getByUsername(String username);
+
     public User getUsrByEmail(String emil);
 
-    public User getUserById(Integer id );
+    public User getUserById(Integer id);
 
     public List<User> getAllUsers();
 
     public boolean isExistsByUsername(String username);
 
     public boolean isExistsByEmail(String email);
+
+    public User updateUserDetails(Integer userId,UserDTO userDTO);
+
+    public User updateUserDetails(String userEmail, UserDTO userDTO);
 
 
 }

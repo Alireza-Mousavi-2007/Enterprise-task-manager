@@ -1,12 +1,12 @@
 package com.taskmanager.enterprizetaskmanager.dto;
 
-public class LoginDTO {
+public class InfoDTO {
 
     private String usernameOrEmail;
     private String password;
-    private String email;
+   // private String email;
 
-    public LoginDTO(String usernameOrEmail, String password) {
+    public InfoDTO(String usernameOrEmail, String password) {
         this.usernameOrEmail = usernameOrEmail;
         this.password = password;
     }
@@ -27,11 +27,11 @@ public class LoginDTO {
         this.password = password;
     }
 
-    public String getEmail() {
+    /*public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
+    }*/
 }
