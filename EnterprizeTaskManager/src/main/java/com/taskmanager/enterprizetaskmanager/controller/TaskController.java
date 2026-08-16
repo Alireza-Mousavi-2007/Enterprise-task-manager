@@ -7,6 +7,7 @@ import com.taskmanager.enterprizetaskmanager.service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,23 +24,27 @@ public class TaskController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('create')")
     public ResponseEntity<String> addTask(@Valid @RequestBody TaskDTO taskDTO) {
         var task = taskService.addTAsk(taskDTO);
         return ResponseEntity.ok("task " + task.getTitle() + " added.");
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('read')")
     public Task getTaskById(@PathVariable Integer id) {
         var task = taskService.getTaskById(id);
         return task;
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('read')")
     public List<Task> getAllTAsks() {
         return taskService.getAllTAsks();
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('update')")
     public Task updateTask(@PathVariable Integer id, @RequestBody TaskDTO taskDTO) {
 
         var task = taskService.updateTask(id, taskDTO);
@@ -47,14 +52,16 @@ public class TaskController {
     }
 
     @PutMapping("/{id}/status")
+    @PreAuthorize("hasAuthority('update')")
     public Task updateTAskStatus(@PathVariable Integer id, @RequestBody status status) {
         var task = taskService.updateTAskStatus(id, status);
         return task;
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('delete')")
     public void deleteTask(@PathVariable Integer id) {
-            taskService.deleteTask(id);
+        taskService.deleteTask(id);
     }
 
 

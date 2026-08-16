@@ -3,7 +3,6 @@ package com.taskmanager.enterprizetaskmanager.security;
 import com.taskmanager.enterprizetaskmanager.dto.AuthorityDTO;
 import com.taskmanager.enterprizetaskmanager.dto.RoleDTO;
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
-import com.taskmanager.enterprizetaskmanager.entity.Role;
 import com.taskmanager.enterprizetaskmanager.security.jwt.JwtFilter;
 import com.taskmanager.enterprizetaskmanager.service.AuthorityService;
 import com.taskmanager.enterprizetaskmanager.service.RoleService;
@@ -77,6 +76,7 @@ public class SecurityConfig {
             sfc.requestMatchers("/api/auth/**").permitAll();
             sfc.anyRequest().authenticated();
         });
+
 
         security.addFilterBefore(jwtFilter, ExceptionTranslationFilter.class);
 
