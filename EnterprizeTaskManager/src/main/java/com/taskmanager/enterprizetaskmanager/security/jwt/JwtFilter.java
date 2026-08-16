@@ -1,5 +1,6 @@
 package com.taskmanager.enterprizetaskmanager.security.jwt;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -37,16 +38,18 @@ public class JwtFilter extends OncePerRequestFilter {
         if (header == null || !header.startsWith("Bearer")) return;
 
         var token = header.substring("Bearer".length()).trim();
+        try {
+            var encoded = jwtToken.tokenVerifier(token);
 
-        var encoded = jwtToken.tokenVerifier(token);
+            List<String> authorities = encoded.getClaim("authorities").asList(String.class);
 
-        List<String> authorities = encoded.getClaim("authorities").asList(String.class);
+            var card = new UsernamePasswordAuthenticationToken(encoded.getSubject(),
+                    null,
+                    AuthorityUtils.createAuthorityList(authorities));
 
-        var card = new UsernamePasswordAuthenticationToken(encoded.getSubject(),
-                null,
-                AuthorityUtils.createAuthorityList(authorities));
-
-        SecurityContextHolder.getContext().setAuthentication(card);
-
+            SecurityContextHolder.getContext().setAuthentication(card);
+        } catch (JWTVerificationException e) {
+            throw new JWTVerificationException(e.getMessage());
+        }
     }
 }

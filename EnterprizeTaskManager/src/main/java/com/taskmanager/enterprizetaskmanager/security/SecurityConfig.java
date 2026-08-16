@@ -3,6 +3,8 @@ package com.taskmanager.enterprizetaskmanager.security;
 import com.taskmanager.enterprizetaskmanager.dto.AuthorityDTO;
 import com.taskmanager.enterprizetaskmanager.dto.RoleDTO;
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
+import com.taskmanager.enterprizetaskmanager.exceptions.AccessDeniedExceptionHandler;
+import com.taskmanager.enterprizetaskmanager.exceptions.AuthenticationEntryPointHandler;
 import com.taskmanager.enterprizetaskmanager.security.jwt.JwtFilter;
 import com.taskmanager.enterprizetaskmanager.service.AuthorityService;
 import com.taskmanager.enterprizetaskmanager.service.RoleService;
@@ -22,7 +24,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.ExceptionTranslationFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.Set;
 
@@ -62,9 +64,13 @@ public class SecurityConfig {
 
 
     private JwtFilter jwtFilter;
+    private AccessDeniedExceptionHandler accessDeniedHandler;
+    private AuthenticationEntryPointHandler authenticationEntryPointHandler;
 
-    public SecurityConfig(JwtFilter jwtFilter) {
+    public SecurityConfig(JwtFilter jwtFilter, AccessDeniedExceptionHandler accessDeniedHandler, AuthenticationEntryPointHandler authenticationEntryPointHandler) {
         this.jwtFilter = jwtFilter;
+        this.accessDeniedHandler = accessDeniedHandler;
+        this.authenticationEntryPointHandler = authenticationEntryPointHandler;
     }
 
     @Bean
@@ -78,9 +84,13 @@ public class SecurityConfig {
         });
 
 
-        security.addFilterBefore(jwtFilter, ExceptionTranslationFilter.class);
+        security.exceptionHandling(exp -> {
+            exp.accessDeniedHandler(accessDeniedHandler);
+            exp.authenticationEntryPoint(authenticationEntryPointHandler);
+        });
 
-// TODO : add entrypoint and accessDenied Exceptions
+        security.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
 
         return security.build();
     }
