@@ -2,11 +2,13 @@ package com.taskmanager.enterprizetaskmanager.dto;
 
 import com.taskmanager.enterprizetaskmanager.entity.Role;
 import com.taskmanager.enterprizetaskmanager.entity.User;
+import jakarta.validation.constraints.Email;
 
 import java.util.Set;
 
 public class UserDTO {
     private String username;
+    @Email
     private String email;
     private String password;
     private boolean enabled = true;
