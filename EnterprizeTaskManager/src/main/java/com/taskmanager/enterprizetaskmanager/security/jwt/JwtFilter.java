@@ -1,6 +1,7 @@
 package com.taskmanager.enterprizetaskmanager.security.jwt;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.taskmanager.enterprizetaskmanager.exceptions.JwtVerificationHandler;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -35,21 +37,27 @@ public class JwtFilter extends OncePerRequestFilter {
 
     public void doBeforeFilter(HttpServletRequest request, HttpServletResponse response) {
         var header = request.getHeader(HttpHeaders.AUTHORIZATION);
-        if (header == null || !header.startsWith("Bearer")) return;
+        if (header == null || !header.startsWith("Bearer ")) return;
 
         var token = header.substring("Bearer".length()).trim();
         try {
             var encoded = jwtToken.tokenVerifier(token);
 
             List<String> authorities = encoded.getClaim("authorities").asList(String.class);
+            // have to learn java 8+
+            var simpleAuthorities = authorities.stream().map(SimpleGrantedAuthority::new).toList();
 
-            var card = new UsernamePasswordAuthenticationToken(encoded.getSubject(),
+            var card = new UsernamePasswordAuthenticationToken(
+                    encoded.getSubject(),
                     null,
-                    AuthorityUtils.createAuthorityList(authorities));
+                    simpleAuthorities
+            );
 
             SecurityContextHolder.getContext().setAuthentication(card);
         } catch (JWTVerificationException e) {
-            throw new JWTVerificationException(e.getMessage());
+            //  throw new JwtVerificationHandler(e.getMessage());
+            System.out.println("invalid token : " + e.getMessage());
+            SecurityContextHolder.clearContext();
         }
     }
 }

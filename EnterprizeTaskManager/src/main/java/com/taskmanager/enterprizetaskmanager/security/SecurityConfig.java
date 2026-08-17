@@ -47,8 +47,8 @@ public class SecurityConfig {
             var update = authorityService.addAuthority(new AuthorityDTO("update"));
             var delete = authorityService.addAuthority(new AuthorityDTO("delete"));
 
-            var admin = roleService.addRole(new RoleDTO("ROLE_ADMIN", Set.of(create, read, update, delete)));
-            var user = roleService.addRole(new RoleDTO("ROLE_USER", Set.of(read)));
+            var admin = roleService.addRole(new RoleDTO("ADMIN", Set.of(create, read, update, delete)));
+            var user = roleService.addRole(new RoleDTO("USER", Set.of(read)));
 
             var alireza = userService.addUser(new UserDTO("alireza",
                     "alirezamousaviseyed1386@gmail.com", "password", true, Set.of(admin)));
@@ -101,7 +101,8 @@ public class SecurityConfig {
 
         var auth = new DaoAuthenticationProvider(user);
         auth.setPasswordEncoder(passwordEncoder());
-        return new ProviderManager();
+        return new ProviderManager(auth
+        );
 
     }
 }

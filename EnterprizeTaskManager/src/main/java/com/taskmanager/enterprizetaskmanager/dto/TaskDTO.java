@@ -15,6 +15,9 @@ public class TaskDTO {
 
     private LocalDateTime dueDate;
 
+    public TaskDTO() {
+    }
+
     public TaskDTO(String title, com.taskmanager.enterprizetaskmanager.enums.priority priority) {
         this.title = title;
         this.priority = priority;

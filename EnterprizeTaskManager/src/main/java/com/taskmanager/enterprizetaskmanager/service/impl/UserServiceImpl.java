@@ -1,26 +1,32 @@
 package com.taskmanager.enterprizetaskmanager.service.impl;
 
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
+import com.taskmanager.enterprizetaskmanager.entity.Role;
 import com.taskmanager.enterprizetaskmanager.entity.User;
 import com.taskmanager.enterprizetaskmanager.exceptions.UserNotFoundException;
 import com.taskmanager.enterprizetaskmanager.repository.UserRepository;
+import com.taskmanager.enterprizetaskmanager.service.RoleService;
 import com.taskmanager.enterprizetaskmanager.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private UserRepository repo;
     private PasswordEncoder passwordEncoder;
+    private RoleService roleService;
 
-    public UserServiceImpl(UserRepository repo, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository repo, PasswordEncoder passwordEncoder, RoleService roleService) {
         this.repo = repo;
         this.passwordEncoder = passwordEncoder;
+        this.roleService = roleService;
     }
 
     @Override
@@ -30,7 +36,13 @@ public class UserServiceImpl implements UserService {
         user.setUsername(userDTO.getUsername());
         user.setEmail(userDTO.getEmail());
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        user.setRoles(userDTO.getRole());
+
+        Set<Role> realRoles = new HashSet<>();
+        for(Role r : userDTO.getRole()){
+            // to recognize role from database
+            realRoles.add(roleService.getRoleByName(r.getRole()));
+        }
+        user.setRoles(realRoles);
 
         return repo.save(user);
     }
@@ -74,27 +86,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUserDetails(Integer userId, UserDTO userDTO) {
-        var user = repo.findById(userId);
-        if (user.isPresent()){
-            user.get().setUsername(userDTO.getUsername());
-            user.get().setPassword(userDTO.getPassword());
-            user.get().setEmail(userDTO.getEmail());
-            user.get().setRoles(userDTO.getRole());
-            user.get().setEnabled(userDTO.isEnabled());
-            return user.get();
+    public User updateUserDetailsByUsername(String username, UserDTO userDTO) {
+        var user = repo.getByUsername(username);
+        if (user == null) {
+            throw new UserNotFoundException("There's no user with username = " + username);
+        } else {
+            user.setUsername(userDTO.getUsername());
+            user.setPassword(userDTO.getPassword());
+            user.setEmail(userDTO.getEmail());
+            user.setRoles(userDTO.getRole());
+            user.setEnabled(userDTO.isEnabled());
+
+            return user;
         }
-        else throw new UserNotFoundException("There's no user with id = "+userId);
     }
 
     @Override
-    public User updateUserDetails(String userEmail, UserDTO userDTO) {
+    public User updateUserDetailsByEmail(String userEmail, UserDTO userDTO) {
         {
             var user = repo.findByEmail(userEmail);
-            if (user== null){
-                throw new UserNotFoundException("There's no user with email = "+userEmail);
-            }
-            else {
+            if (user == null) {
+                throw new UserNotFoundException("There's no user with email = " + userEmail);
+            } else {
                 user.setUsername(userDTO.getUsername());
                 user.setPassword(userDTO.getPassword());
                 user.setEmail(userDTO.getEmail());
@@ -105,6 +118,13 @@ public class UserServiceImpl implements UserService {
             }
 
         }
+    }
+
+    @Override
+    public boolean areEmailAndUsernameSame(String username, String email) {
+        var user = repo.getByUsername(username);
+        if (user == null) return false;
+        return user.getEmail().equalsIgnoreCase(email);
     }
 
 

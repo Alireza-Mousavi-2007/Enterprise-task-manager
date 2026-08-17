@@ -4,4 +4,5 @@ import com.taskmanager.enterprizetaskmanager.entity.Authority;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AuthorityRepository extends JpaRepository<Authority,Integer> {
+    public Authority getByAuthority(String name);
 }

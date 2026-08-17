@@ -19,6 +19,11 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Override
+    public Authority getAuthorityByName(String name) {
+        return repo.getByAuthority(name);
+    }
+
+    @Override
     public Authority addAuthority(AuthorityDTO authorityDTO) {
 
         Authority authority = new Authority();
@@ -27,8 +32,11 @@ public class AuthorityServiceImpl implements AuthorityService {
         return repo.save(authority);
     }
 
+
     @Override
     public List<Authority> getAllAuthorities() {
         return repo.findAll();
     }
+
+
 }

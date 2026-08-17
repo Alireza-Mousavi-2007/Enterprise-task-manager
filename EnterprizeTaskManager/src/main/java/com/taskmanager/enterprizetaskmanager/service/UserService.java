@@ -24,9 +24,9 @@ public interface UserService extends UserDetailsService {
 
     public boolean isExistsByEmail(String email);
 
-    public User updateUserDetails(Integer userId,UserDTO userDTO);
+    public User updateUserDetailsByUsername(String username, UserDTO userDTO);
 
-    public User updateUserDetails(String userEmail, UserDTO userDTO);
+    public User updateUserDetailsByEmail(String userEmail, UserDTO userDTO);
 
-
+    public boolean areEmailAndUsernameSame(String username, String email);
 }

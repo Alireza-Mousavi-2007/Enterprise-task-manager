@@ -10,6 +10,8 @@ public interface AuthorityService {
     public Authority addAuthority(AuthorityDTO authorityDTO);
 
     public List<Authority> getAllAuthorities();
+    public Authority getAuthorityByName(String name);
+
 
 
 }

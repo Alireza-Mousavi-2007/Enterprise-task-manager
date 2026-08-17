@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -30,7 +31,7 @@ public class User implements UserDetails {
     @NotBlank(message = "email can't be empty")
     private String email;
 
-    @Column(name = "user_password",  nullable = false)
+    @Column(name = "user_password", nullable = false)
     @NotBlank(message = "password can't be empty")
     private String password;
 
@@ -64,9 +65,13 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        var authorities = new HashSet<Authority>();
+        var authorities = new HashSet<GrantedAuthority>();
+
         for (var r : roles) {
-            authorities.addAll(r.getAuthorities());
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + r.getRole()));
+            for (var a : r.getAuthorities()) {
+                authorities.add(new SimpleGrantedAuthority(a.getAuthority()));
+            }
         }
         return authorities;
     }
