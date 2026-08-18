@@ -101,8 +101,7 @@ public class SecurityConfig {
 
         var auth = new DaoAuthenticationProvider(user);
         auth.setPasswordEncoder(passwordEncoder());
-        return new ProviderManager(auth
-        );
+        return new ProviderManager(auth);
 
     }
 }

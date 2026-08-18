@@ -73,6 +73,7 @@ public class User implements UserDetails {
                 authorities.add(new SimpleGrantedAuthority(a.getAuthority()));
             }
         }
+        
         return authorities;
     }
 

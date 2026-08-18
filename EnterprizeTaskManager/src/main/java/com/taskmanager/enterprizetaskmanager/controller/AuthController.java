@@ -40,10 +40,15 @@ public class AuthController {
         var pocket = new UsernamePasswordAuthenticationToken(info.getUsernameOrEmail(), info.getPassword());
         var auth = authenticationManager.authenticate(pocket);
 
-        List<String> authorities = new ArrayList<>();
-        for (var a : auth.getAuthorities()) {
-            authorities.add(a.getAuthority());
-        }
+//        List<String> authorities = new ArrayList<>();
+//        for (var a : auth.getAuthorities()) {
+//            authorities.add(a.getAuthority());
+//        }
+
+        //TODO: gotta check this
+        List<String> authorities = auth.getAuthorities().stream()
+                .map(a -> a.getAuthority())
+                .toList();
 
         return ResponseEntity.ok(jwtToken.tokenMaker(info.getUsernameOrEmail(), authorities));
 
@@ -52,10 +57,15 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@Valid @RequestBody UserDTO userDTO) {
         var addedUSer = userService.addUser(userDTO);
-        List<String> authorities = new ArrayList<>();
-        for (var a : addedUSer.getAuthorities()) {
-            authorities.add(a.getAuthority());
-        }
+//        List<String> authorities = new ArrayList<>();
+//        for (var a : addedUSer.getAuthorities()) {
+//            authorities.add(a.getAuthority());
+//        }
+
+        //TODO: gotta check this
+        List<String> authorities = addedUSer.getAuthorities().stream()
+                .map(a -> a.getAuthority())
+                .toList();
         return ResponseEntity.ok(jwtToken.tokenMaker(addedUSer.getUsername(), authorities));
     }
 

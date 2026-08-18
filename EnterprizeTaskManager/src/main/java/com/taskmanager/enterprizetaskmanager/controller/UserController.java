@@ -46,7 +46,6 @@ public class UserController {
     @GetMapping("/by-email/{email:.+}")
     @PreAuthorize("@userServiceImpl.areEmailAndUsernameSame(authentication.name,#email) or hasRole('ADMIN')")
     public User getUserDetailByEmail(@PathVariable String email) {
-        System.out.println("current yser authorities : "+ SecurityContextHolder.getContext().getAuthentication().getAuthorities());
         return userService.getUsrByEmail(email);
 
     }
