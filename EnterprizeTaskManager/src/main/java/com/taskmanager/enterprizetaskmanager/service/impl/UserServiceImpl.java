@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 
         Set<Role> realRoles = new HashSet<>();
-        for(Role r : userDTO.getRole()){
+        for (Role r : userDTO.getRole()) {
             // to recognize role from database
             realRoles.add(roleService.getRoleByName(r.getRole()));
         }
@@ -92,11 +92,12 @@ public class UserServiceImpl implements UserService {
             throw new UserNotFoundException("There's no user with username = " + username);
         } else {
             user.setUsername(userDTO.getUsername());
-            user.setPassword(userDTO.getPassword());
+            user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
             user.setEmail(userDTO.getEmail());
             user.setRoles(userDTO.getRole());
             user.setEnabled(userDTO.isEnabled());
 
+            repo.save(user);
             return user;
         }
     }
@@ -109,11 +110,12 @@ public class UserServiceImpl implements UserService {
                 throw new UserNotFoundException("There's no user with email = " + userEmail);
             } else {
                 user.setUsername(userDTO.getUsername());
-                user.setPassword(userDTO.getPassword());
+                user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
                 user.setEmail(userDTO.getEmail());
                 user.setRoles(userDTO.getRole());
                 user.setEnabled(userDTO.isEnabled());
 
+                repo.save(user);
                 return user;
             }
 
@@ -129,9 +131,11 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        var user = repo.getByUsername(username);
-        if (user == null) throw new UserNotFoundException("there's no user with username : " + username);
+    public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
+        var user = repo.getByUsername(usernameOrEmail);
+        if (user == null) user = getUsrByEmail(usernameOrEmail);
+        if (user == null)
+            throw new UserNotFoundException("there's no user with  : " + usernameOrEmail);
         else
             return user;
     }

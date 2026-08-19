@@ -3,6 +3,7 @@ package com.taskmanager.enterprizetaskmanager.controller;
 import com.taskmanager.enterprizetaskmanager.dto.InfoDTO;
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
 import com.taskmanager.enterprizetaskmanager.security.jwt.JwtToken;
+import com.taskmanager.enterprizetaskmanager.service.UserService;
 import com.taskmanager.enterprizetaskmanager.service.impl.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -30,7 +31,7 @@ public class AuthController {
 
     private AuthenticationManager authenticationManager;
     private JwtToken jwtToken;
-    private UserServiceImpl userService;
+    private UserService userService;
 
     public AuthController(AuthenticationManager authenticationManager, JwtToken jwtToken) {
         this.authenticationManager = authenticationManager;

@@ -1,7 +1,7 @@
 package com.taskmanager.enterprizetaskmanager.entity;
 
-import com.taskmanager.enterprizetaskmanager.enums.priority;
-import com.taskmanager.enterprizetaskmanager.enums.status;
+import com.taskmanager.enterprizetaskmanager.enums.Priority;
+import com.taskmanager.enterprizetaskmanager.enums.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
@@ -21,10 +21,10 @@ public class Task {
     private String title;
 
     @Column(name = "task_status")
-    private status status;
+    private Status status;
 
     @Column(name = "task_priority")
-    private priority priority;
+    private Priority priority;
 
     @Column(name = "task_created_time")
     private LocalDateTime createdAt;
@@ -39,7 +39,7 @@ public class Task {
         this.title = title;
     }
 
-    public Task(Integer id, String title, com.taskmanager.enterprizetaskmanager.enums.status status, com.taskmanager.enterprizetaskmanager.enums.priority priority, LocalDateTime createdAt, LocalDateTime dueDate) {
+    public Task(Integer id, String title, Status status, Priority priority, LocalDateTime createdAt, LocalDateTime dueDate) {
         this.id = id;
         this.title = title;
         this.status = status;
@@ -64,19 +64,19 @@ public class Task {
         this.title = title;
     }
 
-    public com.taskmanager.enterprizetaskmanager.enums.status getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(com.taskmanager.enterprizetaskmanager.enums.status status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    public com.taskmanager.enterprizetaskmanager.enums.priority getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
-    public void setPriority(com.taskmanager.enterprizetaskmanager.enums.priority priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 

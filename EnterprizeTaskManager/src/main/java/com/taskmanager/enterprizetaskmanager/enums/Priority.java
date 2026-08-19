@@ -1,6 +1,6 @@
 package com.taskmanager.enterprizetaskmanager.enums;
 
-public enum priority {
+public enum Priority {
     LOW,
     MEDIUM,
     HIGH

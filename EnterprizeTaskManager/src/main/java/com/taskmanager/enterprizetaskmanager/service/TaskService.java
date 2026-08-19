@@ -2,10 +2,8 @@ package com.taskmanager.enterprizetaskmanager.service;
 
 import com.taskmanager.enterprizetaskmanager.dto.TaskDTO;
 import com.taskmanager.enterprizetaskmanager.entity.Task;
-import com.taskmanager.enterprizetaskmanager.enums.priority;
-import com.taskmanager.enterprizetaskmanager.enums.status;
+import com.taskmanager.enterprizetaskmanager.enums.Status;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public interface TaskService {
@@ -18,7 +16,7 @@ public interface TaskService {
 
     public Task updateTask(Integer taskId , TaskDTO taskDTO);
 
-    public Task updateTAskStatus(Integer taskId, status status);
+    public Task updateTAskStatus(Integer taskId, Status status);
 
     public void deleteTask(Integer id);
 

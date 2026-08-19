@@ -1,6 +1,6 @@
 package com.taskmanager.enterprizetaskmanager.enums;
 
-public enum status {
+public enum Status {
     PENDING,
     IN_PROGRESS,
     COMPLETED

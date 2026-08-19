@@ -2,7 +2,7 @@ package com.taskmanager.enterprizetaskmanager.controller;
 
 import com.taskmanager.enterprizetaskmanager.dto.TaskDTO;
 import com.taskmanager.enterprizetaskmanager.entity.Task;
-import com.taskmanager.enterprizetaskmanager.enums.status;
+import com.taskmanager.enterprizetaskmanager.enums.Status;
 import com.taskmanager.enterprizetaskmanager.service.TaskService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -28,7 +28,7 @@ public class TaskController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('create')")
-    @Operation(summary ="add task by TaskDTO",description = "private String title,private status status,private priority priority,private LocalDateTime dueDate")
+    @Operation(summary ="add task by TaskDTO",description = "private String title,private Status Status,private Priority Priority,private LocalDateTime dueDate")
     public ResponseEntity<String> addTask(@Valid @RequestBody TaskDTO taskDTO) {
         var task = taskService.addTAsk(taskDTO);
         return ResponseEntity.ok("task " + task.getTitle() + " added.");
@@ -51,8 +51,8 @@ public class TaskController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('update')")
-    @Operation(summary ="update task by id and taskDTO",description = "TaskDTO :private String title,private status status,private priority priority,private LocalDateTime dueDate")
-    public Task updateTask(@PathVariable Integer id, @RequestBody TaskDTO taskDTO) {
+    @Operation(summary ="update task by id and taskDTO",description = "TaskDTO :private String title,private Status Status,private Priority Priority,private LocalDateTime dueDate")
+    public Task updateTask(@PathVariable Integer id, @Valid @RequestBody TaskDTO taskDTO) {
 
         var task = taskService.updateTask(id, taskDTO);
         return task;
@@ -60,8 +60,8 @@ public class TaskController {
 
     @PutMapping("/{id}/status")
     @PreAuthorize("hasAuthority('update')")
-    @Operation(summary ="update task status by id")
-    public Task updateTAskStatus(@PathVariable Integer id, @RequestBody status status) {
+    @Operation(summary ="update task Status by id")
+    public Task updateTAskStatus(@PathVariable Integer id, @Valid @RequestBody Status status) {
         var task = taskService.updateTAskStatus(id, status);
         return task;
     }

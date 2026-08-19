@@ -2,7 +2,7 @@ package com.taskmanager.enterprizetaskmanager.service.impl;
 
 import com.taskmanager.enterprizetaskmanager.dto.TaskDTO;
 import com.taskmanager.enterprizetaskmanager.entity.Task;
-import com.taskmanager.enterprizetaskmanager.enums.status;
+import com.taskmanager.enterprizetaskmanager.enums.Status;
 import com.taskmanager.enterprizetaskmanager.exceptions.TaskNotFoundException;
 import com.taskmanager.enterprizetaskmanager.repository.TaskRepository;
 import com.taskmanager.enterprizetaskmanager.service.TaskService;
@@ -62,7 +62,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task updateTAskStatus(Integer taskId, status status) {
+    public Task updateTAskStatus(Integer taskId, Status status) {
         var task = repo.findById(taskId);
         if(task.isPresent()){
             task.get().setStatus(status);

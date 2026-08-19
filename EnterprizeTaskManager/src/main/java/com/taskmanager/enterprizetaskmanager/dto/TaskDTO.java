@@ -1,7 +1,7 @@
 package com.taskmanager.enterprizetaskmanager.dto;
 
-import com.taskmanager.enterprizetaskmanager.enums.priority;
-import com.taskmanager.enterprizetaskmanager.enums.status;
+import com.taskmanager.enterprizetaskmanager.enums.Priority;
+import com.taskmanager.enterprizetaskmanager.enums.Status;
 
 import java.time.LocalDateTime;
 
@@ -9,27 +9,27 @@ public class TaskDTO {
 
     private String title;
 
-    private status status;
+    private Status status;
 
-    private priority priority;
+    private Priority priority;
 
     private LocalDateTime dueDate;
 
     public TaskDTO() {
     }
 
-    public TaskDTO(String title, com.taskmanager.enterprizetaskmanager.enums.priority priority) {
+    public TaskDTO(String title, Priority priority) {
         this.title = title;
         this.priority = priority;
     }
 
-    public TaskDTO(String title, com.taskmanager.enterprizetaskmanager.enums.priority priority, LocalDateTime dueDate) {
+    public TaskDTO(String title, Priority priority, LocalDateTime dueDate) {
         this.title = title;
         this.priority = priority;
         this.dueDate = dueDate;
     }
 
-    public TaskDTO(String title, com.taskmanager.enterprizetaskmanager.enums.status status, com.taskmanager.enterprizetaskmanager.enums.priority priority, LocalDateTime dueDate) {
+    public TaskDTO(String title, Status status, Priority priority, LocalDateTime dueDate) {
         this.title = title;
         this.status = status;
         this.priority = priority;
@@ -44,11 +44,11 @@ public class TaskDTO {
         this.title = title;
     }
 
-    public com.taskmanager.enterprizetaskmanager.enums.priority getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
-    public void setPriority(com.taskmanager.enterprizetaskmanager.enums.priority priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
@@ -60,11 +60,11 @@ public class TaskDTO {
         this.dueDate = dueDate;
     }
 
-    public com.taskmanager.enterprizetaskmanager.enums.status getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(com.taskmanager.enterprizetaskmanager.enums.status status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }

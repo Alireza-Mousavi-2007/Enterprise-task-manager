@@ -7,6 +7,7 @@ import com.taskmanager.enterprizetaskmanager.service.UserService;
 import com.taskmanager.enterprizetaskmanager.service.impl.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class UserController {
     @PostMapping("/add")
     @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "add User by UserDTO",description = "UserDTO contains (private String username ,private String email ,private String password, private boolean enabled = true ,private Set<Role> role")
-    public ResponseEntity<String> addUser(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<String> addUser(@Valid  @RequestBody UserDTO userDTO) {
         userService.addUser(userDTO);
         return ResponseEntity.ok("user " + userDTO.getUsername() + " added successfully !");
     }
@@ -60,7 +61,7 @@ public class UserController {
     @PutMapping("/{username}")
     @PreAuthorize("authentication.name==#username")
     @Operation(summary = "update user  by username")
-    public ResponseEntity<String> updateUserDetailByName(@PathVariable String username, @RequestBody UserDTO userDTO) {
+    public ResponseEntity<String> updateUserDetailByName(@PathVariable String username, @Valid @RequestBody UserDTO userDTO) {
         var updatedUser = userService.updateUserDetailsByUsername(username, userDTO);
         return ResponseEntity.ok("user updated");
 
@@ -69,7 +70,7 @@ public class UserController {
     @PutMapping("/by-email/{email:.+}")
     @PreAuthorize("@userServiceImpl.areEmailAndUsernameSame(authentication.name,#email)")
     @Operation(summary = "update user  by email")
-    public ResponseEntity<String> updateUserDetail(@PathVariable String email, @RequestBody UserDTO userDTO) {
+    public ResponseEntity<String> updateUserDetail(@PathVariable String email,@Valid  @RequestBody UserDTO userDTO) {
         var updatedUser = userService.updateUserDetailsByEmail(email, userDTO);
 
 
