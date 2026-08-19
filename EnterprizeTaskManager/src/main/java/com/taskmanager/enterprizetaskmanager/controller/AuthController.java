@@ -4,6 +4,8 @@ import com.taskmanager.enterprizetaskmanager.dto.InfoDTO;
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
 import com.taskmanager.enterprizetaskmanager.security.jwt.JwtToken;
 import com.taskmanager.enterprizetaskmanager.service.impl.UserServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpRequest;
@@ -23,6 +25,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(path = "/api/auth", produces = MediaType.APPLICATION_JSON_VALUE)
+@Tag(name ="authentication",description = "for authenticate user")
 public class AuthController {
 
     private AuthenticationManager authenticationManager;
@@ -35,6 +38,7 @@ public class AuthController {
     }
 
 
+    @Operation(summary = "login by InfoDTO",description = "InfoDTO contains (usernameOrEmail , password")
     @PostMapping("/login")
     public ResponseEntity<String> login(@Valid() @RequestBody InfoDTO info) {
         var pocket = new UsernamePasswordAuthenticationToken(info.getUsernameOrEmail(), info.getPassword());
@@ -54,6 +58,7 @@ public class AuthController {
 
     }
 
+    @Operation(summary = "Register by UserDTO",description = "UserDTO contains (private String username ,private String email ,private String password, private boolean enabled = true ,private Set<Role> role")
     @PostMapping("/register")
     public ResponseEntity<String> register(@Valid @RequestBody UserDTO userDTO) {
         var addedUSer = userService.addUser(userDTO);

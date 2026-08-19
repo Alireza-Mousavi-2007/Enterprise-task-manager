@@ -79,7 +79,12 @@ public class SecurityConfig {
         security.csrf(csrf -> csrf.disable());
 
         security.authorizeHttpRequests(sfc -> {
-            sfc.requestMatchers("/api/auth/**").permitAll();
+            sfc.requestMatchers(
+                    "/api/auth/**",
+                    "/v3/api-docs/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html"
+            ).permitAll();
             sfc.anyRequest().authenticated();
         });
 

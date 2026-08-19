@@ -4,6 +4,8 @@ import com.taskmanager.enterprizetaskmanager.dto.TaskDTO;
 import com.taskmanager.enterprizetaskmanager.entity.Task;
 import com.taskmanager.enterprizetaskmanager.enums.status;
 import com.taskmanager.enterprizetaskmanager.service.TaskService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/tasks", produces = MediaType.APPLICATION_JSON_VALUE)
+@Tag(name="Tasks",description = "for operating on tasks")
 public class TaskController {
 
     final TaskService taskService;
@@ -25,6 +28,7 @@ public class TaskController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('create')")
+    @Operation(summary ="add task by TaskDTO",description = "private String title,private status status,private priority priority,private LocalDateTime dueDate")
     public ResponseEntity<String> addTask(@Valid @RequestBody TaskDTO taskDTO) {
         var task = taskService.addTAsk(taskDTO);
         return ResponseEntity.ok("task " + task.getTitle() + " added.");
@@ -32,19 +36,22 @@ public class TaskController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('read')")
-    public Task getTaskById(@PathVariable Integer id) {
+    @Operation(summary ="get task by id")
+        public Task getTaskById(@PathVariable Integer id) {
         var task = taskService.getTaskById(id);
         return task;
     }
 
     @GetMapping
     @PreAuthorize("hasAuthority('read')")
+    @Operation(summary ="get all taks")
     public List<Task> getAllTAsks() {
         return taskService.getAllTAsks();
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('update')")
+    @Operation(summary ="update task by id and taskDTO",description = "TaskDTO :private String title,private status status,private priority priority,private LocalDateTime dueDate")
     public Task updateTask(@PathVariable Integer id, @RequestBody TaskDTO taskDTO) {
 
         var task = taskService.updateTask(id, taskDTO);
@@ -53,6 +60,7 @@ public class TaskController {
 
     @PutMapping("/{id}/status")
     @PreAuthorize("hasAuthority('update')")
+    @Operation(summary ="update task status by id")
     public Task updateTAskStatus(@PathVariable Integer id, @RequestBody status status) {
         var task = taskService.updateTAskStatus(id, status);
         return task;
