@@ -169,7 +169,4 @@ The token is valid for 5 hours and carries an `authorities` claim (the user's li
 
 Issues and pull requests are welcome. Please open an issue first to discuss any significant change before submitting a PR.
 
-## 📄 License
 
-<!-- Add your preferred license here, e.g. MIT -->
-```
