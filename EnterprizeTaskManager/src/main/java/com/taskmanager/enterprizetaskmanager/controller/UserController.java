@@ -1,6 +1,7 @@
 package com.taskmanager.enterprizetaskmanager.controller;
 
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
+import com.taskmanager.enterprizetaskmanager.dto.UserProfileUpdateDTO;
 import com.taskmanager.enterprizetaskmanager.entity.User;
 import com.taskmanager.enterprizetaskmanager.exceptions.UserNotFoundException;
 import com.taskmanager.enterprizetaskmanager.service.UserService;
@@ -28,7 +29,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/add")
+    @PostMapping("/admin/add")
     @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "add User by UserDTO",description = "UserDTO contains (private String username ,private String email ,private String password, private boolean enabled = true ,private Set<Role> role")
     public ResponseEntity<String> addUser(@Valid  @RequestBody UserDTO userDTO) {
@@ -36,7 +37,7 @@ public class UserController {
         return ResponseEntity.ok("user " + userDTO.getUsername() + " added successfully !");
     }
 
-    @GetMapping("/all")
+    @GetMapping("/admin/all")
     @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "get all users")
     public List<User> getAllUsers() {
@@ -58,23 +59,29 @@ public class UserController {
 
     }
 
-    @PutMapping("/{username}")
-    @PreAuthorize("authentication.name==#username")
-    @Operation(summary = "update user  by username")
+    @PutMapping("/admin/{username}")
+    @PreAuthorize("hasRole('ADMIN')")
+    @Operation(summary = "update user  by admin with username")
     public ResponseEntity<String> updateUserDetailByName(@PathVariable String username, @Valid @RequestBody UserDTO userDTO) {
         var updatedUser = userService.updateUserDetailsByUsername(username, userDTO);
         return ResponseEntity.ok("user updated");
 
     }
 
-    @PutMapping("/by-email/{email:.+}")
-    @PreAuthorize("@userServiceImpl.areEmailAndUsernameSame(authentication.name,#email)")
-    @Operation(summary = "update user  by email")
+    @PutMapping("/admin/by-email/{email:.+}")
+    @PreAuthorize("hasRole('ADMIN')")
+    @Operation(summary = "update user  by admin with email")
     public ResponseEntity<String> updateUserDetail(@PathVariable String email,@Valid  @RequestBody UserDTO userDTO) {
         var updatedUser = userService.updateUserDetailsByEmail(email, userDTO);
-
-
         return ResponseEntity.ok("user updated");
+    }
+
+    @PutMapping("/{username}")
+    @PreAuthorize("authentication.name==#username")
+    @Operation(summary = "update user by himself with username")
+    public ResponseEntity<String> updateUserProfileByHimselfWithUsername(@PathVariable String username ,@Valid @RequestBody UserProfileUpdateDTO userProfileUpdateDTO){
+        var updated= userService.selfUpdateUserByUsername(username ,userProfileUpdateDTO);
+        return ResponseEntity.ok("userUpdated");
 
     }
 

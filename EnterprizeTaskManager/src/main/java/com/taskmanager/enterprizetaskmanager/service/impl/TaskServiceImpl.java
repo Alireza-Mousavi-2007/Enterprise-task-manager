@@ -56,6 +56,7 @@ public class TaskServiceImpl implements TaskService {
             task.get().setStatus(taskDTO.getStatus());
             task.get().setPriority(taskDTO.getPriority());
             task.get().setDueDate(taskDTO.getDueDate());
+            repo.save(task.get());
             return task.get();
         } else
             throw new TaskNotFoundException("there's no task with id = " + taskId);
@@ -66,6 +67,7 @@ public class TaskServiceImpl implements TaskService {
         var task = repo.findById(taskId);
         if(task.isPresent()){
             task.get().setStatus(status);
+            repo.save(task.get());
             return task.get();
         }
         throw new TaskNotFoundException("there's no task with id = " + taskId);

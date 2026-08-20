@@ -4,6 +4,7 @@ import com.taskmanager.enterprizetaskmanager.dto.RegisterDTO;
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
 
 
+import com.taskmanager.enterprizetaskmanager.dto.UserProfileUpdateDTO;
 import com.taskmanager.enterprizetaskmanager.entity.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -28,6 +29,8 @@ public interface UserService extends UserDetailsService {
     public User updateUserDetailsByUsername(String username, UserDTO userDTO);
 
     public User updateUserDetailsByEmail(String userEmail, UserDTO userDTO);
+
+    public User selfUpdateUserByUsername(String username , UserProfileUpdateDTO userProfileUpdateDTO);
 
     public User registerUser(RegisterDTO registerDTO);
 

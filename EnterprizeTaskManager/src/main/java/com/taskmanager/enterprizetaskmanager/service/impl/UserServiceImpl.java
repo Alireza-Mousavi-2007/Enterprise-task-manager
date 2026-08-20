@@ -2,6 +2,7 @@ package com.taskmanager.enterprizetaskmanager.service.impl;
 
 import com.taskmanager.enterprizetaskmanager.dto.RegisterDTO;
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
+import com.taskmanager.enterprizetaskmanager.dto.UserProfileUpdateDTO;
 import com.taskmanager.enterprizetaskmanager.entity.Role;
 import com.taskmanager.enterprizetaskmanager.entity.User;
 import com.taskmanager.enterprizetaskmanager.exceptions.UserNotFoundException;
@@ -121,6 +122,15 @@ public class UserServiceImpl implements UserService {
             }
 
         }
+    }
+
+    @Override
+    public User selfUpdateUserByUsername(String username, UserProfileUpdateDTO userProfileUpdateDTO) {
+        var user = repo.getByUsername(username);
+        user.setUsername(userProfileUpdateDTO.getUsername());
+        user.setEmail(userProfileUpdateDTO.getEmail());
+        user.setPassword(userProfileUpdateDTO.getPassword());
+        return repo.save(user);
     }
 
     @Override
