@@ -28,4 +28,10 @@ public class GlobalControllerExceptionHandler {
         return Map.of("message", e.getMessage());
     }
 
+    @ExceptionHandler(AuthorityNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Map<String, String> authorityNotFoundException(AuthorityNotFoundException e) {
+        return Map.of("Message", e.getMessage());
+    }
+
 }

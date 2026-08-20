@@ -3,13 +3,17 @@ package com.taskmanager.enterprizetaskmanager.dto;
 import com.taskmanager.enterprizetaskmanager.entity.Role;
 import com.taskmanager.enterprizetaskmanager.entity.User;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Set;
 
 public class UserDTO {
+    @NotBlank(message = "username can't be empty")
     private String username;
     @Email
+    @NotBlank(message = "user email can't be empty")
     private String email;
+    @NotBlank(message = "user password can't be empty")
     private String password;
     private boolean enabled = true;
     private Set<Role> role;
