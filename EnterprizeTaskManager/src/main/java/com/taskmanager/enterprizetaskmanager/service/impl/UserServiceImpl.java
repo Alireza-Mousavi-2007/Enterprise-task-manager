@@ -1,5 +1,6 @@
 package com.taskmanager.enterprizetaskmanager.service.impl;
 
+import com.taskmanager.enterprizetaskmanager.dto.RegisterDTO;
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
 import com.taskmanager.enterprizetaskmanager.entity.Role;
 import com.taskmanager.enterprizetaskmanager.entity.User;
@@ -120,6 +121,17 @@ public class UserServiceImpl implements UserService {
             }
 
         }
+    }
+
+    @Override
+    public User registerUser(RegisterDTO registerDTO) {
+        var user = new User();
+        user.setUsername(registerDTO.getUsername());
+        user.setEmail(registerDTO.getEmail());
+        user.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
+        user.setEnabled(true);
+        user.setRoles(Set.of(roleService.getRoleByName("USER")));
+        return repo.save(user);
     }
 
     @Override

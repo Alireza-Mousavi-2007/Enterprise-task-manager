@@ -1,5 +1,6 @@
 package com.taskmanager.enterprizetaskmanager.service;
 
+import com.taskmanager.enterprizetaskmanager.dto.RegisterDTO;
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
 
 
@@ -27,6 +28,8 @@ public interface UserService extends UserDetailsService {
     public User updateUserDetailsByUsername(String username, UserDTO userDTO);
 
     public User updateUserDetailsByEmail(String userEmail, UserDTO userDTO);
+
+    public User registerUser(RegisterDTO registerDTO);
 
     public boolean areEmailAndUsernameSame(String username, String email);
 }

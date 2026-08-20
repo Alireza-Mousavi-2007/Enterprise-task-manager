@@ -1,6 +1,7 @@
 package com.taskmanager.enterprizetaskmanager.controller;
 
 import com.taskmanager.enterprizetaskmanager.dto.InfoDTO;
+import com.taskmanager.enterprizetaskmanager.dto.RegisterDTO;
 import com.taskmanager.enterprizetaskmanager.dto.UserDTO;
 import com.taskmanager.enterprizetaskmanager.security.jwt.JwtToken;
 import com.taskmanager.enterprizetaskmanager.service.UserService;
@@ -26,7 +27,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(path = "/api/auth", produces = MediaType.APPLICATION_JSON_VALUE)
-@Tag(name ="authentication",description = "for authenticate user")
+@Tag(name = "authentication", description = "for authenticate user")
 public class AuthController {
 
     private AuthenticationManager authenticationManager;
@@ -39,7 +40,7 @@ public class AuthController {
     }
 
 
-    @Operation(summary = "login by InfoDTO",description = "InfoDTO contains (usernameOrEmail , password")
+    @Operation(summary = "login by InfoDTO", description = "InfoDTO contains (usernameOrEmail , password")
     @PostMapping("/login")
     public ResponseEntity<String> login(@Valid() @RequestBody InfoDTO info) {
         var pocket = new UsernamePasswordAuthenticationToken(info.getUsernameOrEmail(), info.getPassword());
@@ -59,20 +60,21 @@ public class AuthController {
 
     }
 
-    @Operation(summary = "Register by UserDTO",description = "UserDTO contains (private String username ,private String email ,private String password, private boolean enabled = true ,private Set<Role> role")
+    @Operation(summary = "Register by UserDTO", description = "UserDTO contains (private String username ,private String email ,private String password, private boolean enabled = true ,private Set<Role> role")
     @PostMapping("/register")
-    public ResponseEntity<String> register(@Valid @RequestBody UserDTO userDTO) {
-        var addedUSer = userService.addUser(userDTO);
+    public ResponseEntity<String> register(@Valid @RequestBody RegisterDTO registerDTO) {
+        var addedUser = userService.registerUser(registerDTO);
 //        List<String> authorities = new ArrayList<>();
 //        for (var a : addedUSer.getAuthorities()) {
 //            authorities.add(a.getAuthority());
 //        }
 
+
         //TODO: gotta check this
-        List<String> authorities = addedUSer.getAuthorities().stream()
+        List<String> authorities = addedUser.getAuthorities().stream()
                 .map(a -> a.getAuthority())
                 .toList();
-        return ResponseEntity.ok(jwtToken.tokenMaker(addedUSer.getUsername(), authorities));
+        return ResponseEntity.ok(jwtToken.tokenMaker(addedUser.getUsername(), authorities));
     }
 
 
