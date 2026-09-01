@@ -30,7 +30,7 @@ public interface UserService extends UserDetailsService {
 
     public User updateUserDetailsByEmail(String userEmail, UserDTO userDTO);
 
-    public User selfUpdateUserByUsername(String username , UserProfileUpdateDTO userProfileUpdateDTO);
+    public User selfUpdateUserByUsername(String username, UserProfileUpdateDTO userProfileUpdateDTO);
 
     public User registerUser(RegisterDTO registerDTO);
 

@@ -29,7 +29,6 @@ public class TaskServiceImpl implements TaskService {
         task.setCreatedAt(LocalDateTime.now());
         task.setDueDate(taskDTO.getDueDate());
 
-
         return repo.save(task);
     }
 

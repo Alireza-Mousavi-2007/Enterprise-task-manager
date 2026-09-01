@@ -34,17 +34,18 @@ public class AuthController {
     private JwtToken jwtToken;
     private UserService userService;
 
-    public AuthController(AuthenticationManager authenticationManager, JwtToken jwtToken) {
+    public AuthController(AuthenticationManager authenticationManager, JwtToken jwtToken, UserService userService) {
         this.authenticationManager = authenticationManager;
         this.jwtToken = jwtToken;
+        this.userService = userService;
     }
-
 
     @Operation(summary = "login by InfoDTO", description = "InfoDTO contains (usernameOrEmail , password")
     @PostMapping("/login")
     public ResponseEntity<String> login(@Valid() @RequestBody InfoDTO info) {
         var pocket = new UsernamePasswordAuthenticationToken(info.getUsernameOrEmail(), info.getPassword());
         var auth = authenticationManager.authenticate(pocket);
+
 
 //        List<String> authorities = new ArrayList<>();
 //        for (var a : auth.getAuthorities()) {

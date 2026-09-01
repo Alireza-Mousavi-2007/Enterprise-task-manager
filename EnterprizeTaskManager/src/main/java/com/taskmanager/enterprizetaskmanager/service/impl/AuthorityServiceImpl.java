@@ -7,7 +7,6 @@ import com.taskmanager.enterprizetaskmanager.repository.AuthorityRepository;
 import com.taskmanager.enterprizetaskmanager.service.AuthorityService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

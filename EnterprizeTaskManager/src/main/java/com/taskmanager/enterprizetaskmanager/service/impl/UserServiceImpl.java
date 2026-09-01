@@ -96,7 +96,16 @@ public class UserServiceImpl implements UserService {
             user.setUsername(userDTO.getUsername());
             user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
             user.setEmail(userDTO.getEmail());
-            user.setRoles(userDTO.getRole());
+
+
+            Set<Role> realRoles = new HashSet<>();
+            for (Role r : userDTO.getRole()) {
+                // to recognize role from database
+                realRoles.add(roleService.getRoleByName(r.getRole()));
+            }
+            user.setRoles(realRoles);
+
+
             user.setEnabled(userDTO.isEnabled());
 
             repo.save(user);
@@ -114,7 +123,16 @@ public class UserServiceImpl implements UserService {
                 user.setUsername(userDTO.getUsername());
                 user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
                 user.setEmail(userDTO.getEmail());
-                user.setRoles(userDTO.getRole());
+
+
+                Set<Role> realRoles = new HashSet<>();
+                for (Role r : userDTO.getRole()) {
+                    // to recognize role from database
+                    realRoles.add(roleService.getRoleByName(r.getRole()));
+                }
+                user.setRoles(realRoles);
+
+
                 user.setEnabled(userDTO.isEnabled());
 
                 repo.save(user);
