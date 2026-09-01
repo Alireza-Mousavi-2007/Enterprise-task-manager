@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9038f839-9e83-4364-9d53-acb9b1bb5441" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/repository/AuthorityRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/repository/RoleRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/repository/UserRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/service/AuthorityServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/entity/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/entity/Authority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/entity/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/entity/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/entity/User.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="3Iiy3hWZcl9OIF1si13x0c3ZiAz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
+  </component>
+  <component name="RunManager" selected="JUnit.AuthorityServiceTest.getAllAuthoritiesTest">
+    <configuration name="AuthorityServiceTest.addAuthorityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EnterprizeTaskManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.taskmanager.enterprizetaskmanager.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.service" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.AuthorityServiceTest" />
+      <option name="METHOD_NAME" value="addAuthorityTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthorityServiceTest.getAllAuthoritiesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EnterprizeTaskManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.taskmanager.enterprizetaskmanager.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.service" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.AuthorityServiceTest" />
+      <option name="METHOD_NAME" value="getAllAuthoritiesTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthorityServiceTest.getAuthorityByNameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EnterprizeTaskManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.taskmanager.enterprizetaskmanager.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.service" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.AuthorityServiceTest" />
+      <option name="METHOD_NAME" value="getAuthorityByNameTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRepositoryTest.existsByEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EnterprizeTaskManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.taskmanager.enterprizetaskmanager.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.repository.UserRepositoryTest" />
+      <option name="METHOD_NAME" value="existsByEmailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRepositoryTest.getByUsernameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EnterprizeTaskManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.taskmanager.enterprizetaskmanager.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.repository.UserRepositoryTest" />
+      <option name="METHOD_NAME" value="getByUsernameTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnterprizeTaskManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="EnterprizeTaskManager" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.taskmanager.enterprizetaskmanager.EnterprizeTaskManagerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AuthorityServiceTest.getAllAuthoritiesTest" />
+        <item itemvalue="JUnit.AuthorityServiceTest.addAuthorityTest" />
+        <item itemvalue="JUnit.AuthorityServiceTest.getAuthorityByNameTest" />
+        <item itemvalue="JUnit.UserRepositoryTest.getByUsernameTest" />
+        <item itemvalue="JUnit.UserRepositoryTest.existsByEmailTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9038f839-9e83-4364-9d53-acb9b1bb5441" name="Changes" comment="" />
+      <created>1788261573203</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788261573203</updated>
+      <workItem from="1788261589829" duration="15713000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

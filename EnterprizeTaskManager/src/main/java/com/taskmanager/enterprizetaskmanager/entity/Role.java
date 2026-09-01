@@ -3,11 +3,13 @@ package com.taskmanager.enterprizetaskmanager.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 
 import java.util.Set;
 
 @Entity
 @Table(name = "roles")
+@Builder
 public class Role {
 
     @Id

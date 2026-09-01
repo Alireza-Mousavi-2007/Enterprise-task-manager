@@ -2,11 +2,13 @@ package com.taskmanager.enterprizetaskmanager.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "authorities")
+@Builder
 public class Authority implements GrantedAuthority {
 
     @Id

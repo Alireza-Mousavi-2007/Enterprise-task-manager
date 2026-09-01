@@ -4,11 +4,13 @@ import com.taskmanager.enterprizetaskmanager.enums.Priority;
 import com.taskmanager.enterprizetaskmanager.enums.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tasks")
+@Builder
 public class Task {
 
     @Id
