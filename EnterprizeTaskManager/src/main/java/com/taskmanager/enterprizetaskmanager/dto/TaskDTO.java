@@ -3,9 +3,10 @@ package com.taskmanager.enterprizetaskmanager.dto;
 import com.taskmanager.enterprizetaskmanager.enums.Priority;
 import com.taskmanager.enterprizetaskmanager.enums.Status;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
-
+@Builder
 public class TaskDTO {
 
     @NotBlank(message = "Task title can't be empty")

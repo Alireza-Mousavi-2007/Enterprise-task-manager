@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9038f839-9e83-4364-9d53-acb9b1bb5441" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/service/RoleServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/service/UserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/service/TaskServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/RegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/RegisterDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/RoleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/RoleDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/UserProfileUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/UserProfileUpdateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/service/AuthorityServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/service/AuthorityServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/TaskDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/dto/TaskDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +53,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.loadUserByUsername_whenUserExists_userDetail">
-    <configuration name="UserServiceTest.areEmailAndUsernameSameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TaskServiceTest.deleteTask_delete_void">
+    <configuration name="TaskServiceTest.deleteTask_delete_void" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EnterprizeTaskManager" />
       <extension name="coverage">
         <pattern>
@@ -69,14 +63,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.service" />
-      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="areEmailAndUsernameSameTest" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.TaskServiceTest" />
+      <option name="METHOD_NAME" value="deleteTask_delete_void" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.loadUserByUsername_whenUserExists_userDetail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskServiceTest.getAllTasks_getAll_ListOfTasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EnterprizeTaskManager" />
       <extension name="coverage">
         <pattern>
@@ -85,14 +79,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.service" />
-      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="loadUserByUsername_whenUserExists_userDetail" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.TaskServiceTest" />
+      <option name="METHOD_NAME" value="getAllTasks_getAll_ListOfTasks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.registerUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskServiceTest.getTaskById_get_task" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EnterprizeTaskManager" />
       <extension name="coverage">
         <pattern>
@@ -101,14 +95,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.service" />
-      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="registerUserTest" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.TaskServiceTest" />
+      <option name="METHOD_NAME" value="getTaskById_get_task" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.selfUpdateUserByUsernameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskServiceTest.updateTaskStatus_updateStatus_task" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EnterprizeTaskManager" />
       <extension name="coverage">
         <pattern>
@@ -117,14 +111,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.service" />
-      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="selfUpdateUserByUsernameTest" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.TaskServiceTest" />
+      <option name="METHOD_NAME" value="updateTaskStatus_updateStatus_task" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.updateUserDetailsByEmailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskServiceTest.updateTask_update_task" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EnterprizeTaskManager" />
       <extension name="coverage">
         <pattern>
@@ -133,8 +127,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.service" />
-      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="updateUserDetailsByEmailTest" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.service.TaskServiceTest" />
+      <option name="METHOD_NAME" value="updateTask_update_task" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest.loadUserByUsername_whenUserExists_userDetail" />
-        <item itemvalue="JUnit.UserServiceTest.areEmailAndUsernameSameTest" />
-        <item itemvalue="JUnit.UserServiceTest.registerUserTest" />
-        <item itemvalue="JUnit.UserServiceTest.selfUpdateUserByUsernameTest" />
-        <item itemvalue="JUnit.UserServiceTest.updateUserDetailsByEmailTest" />
+        <item itemvalue="JUnit.TaskServiceTest.deleteTask_delete_void" />
+        <item itemvalue="JUnit.TaskServiceTest.updateTaskStatus_updateStatus_task" />
+        <item itemvalue="JUnit.TaskServiceTest.updateTask_update_task" />
+        <item itemvalue="JUnit.TaskServiceTest.getAllTasks_getAll_ListOfTasks" />
+        <item itemvalue="JUnit.TaskServiceTest.getTaskById_get_task" />
       </list>
     </recent_temporary>
   </component>
@@ -166,6 +160,7 @@
       <option name="presentableId" value="Default" />
       <updated>1788261573203</updated>
       <workItem from="1788261589829" duration="36345000" />
+      <workItem from="1788607656743" duration="4847000" />
     </task>
     <servers />
   </component>
