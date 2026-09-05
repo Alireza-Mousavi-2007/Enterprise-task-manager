@@ -4,9 +4,11 @@ import com.taskmanager.enterprizetaskmanager.entity.Role;
 import com.taskmanager.enterprizetaskmanager.entity.User;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 
 import java.util.Set;
 
+@Builder
 public class UserDTO {
     @NotBlank(message = "username can't be empty")
     private String username;

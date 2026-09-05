@@ -147,7 +147,7 @@ public class UserServiceImpl implements UserService {
         var user = repo.getByUsername(username);
         user.setUsername(userProfileUpdateDTO.getUsername());
         user.setEmail(userProfileUpdateDTO.getEmail());
-        user.setPassword(userProfileUpdateDTO.getPassword());
+        user.setPassword(passwordEncoder.encode(userProfileUpdateDTO.getPassword()));
         return repo.save(user);
     }
 

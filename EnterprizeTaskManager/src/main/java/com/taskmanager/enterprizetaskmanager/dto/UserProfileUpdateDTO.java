@@ -2,7 +2,9 @@ package com.taskmanager.enterprizetaskmanager.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 
+@Builder
 public class UserProfileUpdateDTO {
 
     @NotBlank
