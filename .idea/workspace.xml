@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9038f839-9e83-4364-9d53-acb9b1bb5441" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/controller/TaskControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/controller/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +56,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
-  <component name="RunManager" selected="JUnit.TaskControllerTest.deleteTask_delete_void">
-    <configuration name="TaskControllerTest.addTask_add_responseEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EnterprizeTaskManager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.taskmanager.enterprizetaskmanager.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.controller.TaskControllerTest" />
-      <option name="METHOD_NAME" value="addTask_add_responseEntity" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserControllerTest.updateUserProfileByHimselfWithUsername_put_responseEntity">
     <configuration name="TaskControllerTest.deleteTask_delete_void" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EnterprizeTaskManager" />
       <extension name="coverage">
@@ -89,7 +73,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskControllerTest.getTaskById_get_responseEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.addUser_post_responseEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EnterprizeTaskManager" />
       <extension name="coverage">
         <pattern>
@@ -98,14 +82,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.controller.TaskControllerTest" />
-      <option name="METHOD_NAME" value="getTaskById_get_responseEntity" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="addUser_post_responseEntity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskControllerTest.updateTaskStatus_put_responseEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.getUserDetailByName_get_responseEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EnterprizeTaskManager" />
       <extension name="coverage">
         <pattern>
@@ -114,14 +98,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.controller.TaskControllerTest" />
-      <option name="METHOD_NAME" value="updateTaskStatus_put_responseEntity" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="getUserDetailByName_get_responseEntity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskControllerTest.updateTask_put_responseEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.updateUserDetailByName_put_responseEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EnterprizeTaskManager" />
       <extension name="coverage">
         <pattern>
@@ -130,8 +114,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.controller.TaskControllerTest" />
-      <option name="METHOD_NAME" value="updateTask_put_responseEntity" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="updateUserDetailByName_put_responseEntity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.updateUserProfileByHimselfWithUsername_put_responseEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EnterprizeTaskManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.taskmanager.enterprizetaskmanager.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.taskmanager.enterprizetaskmanager.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.taskmanager.enterprizetaskmanager.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="updateUserProfileByHimselfWithUsername_put_responseEntity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserControllerTest.updateUserProfileByHimselfWithUsername_put_responseEntity" />
+        <item itemvalue="JUnit.UserControllerTest.updateUserDetailByName_put_responseEntity" />
+        <item itemvalue="JUnit.UserControllerTest.getUserDetailByName_get_responseEntity" />
+        <item itemvalue="JUnit.UserControllerTest.addUser_post_responseEntity" />
         <item itemvalue="JUnit.TaskControllerTest.deleteTask_delete_void" />
-        <item itemvalue="JUnit.TaskControllerTest.updateTaskStatus_put_responseEntity" />
-        <item itemvalue="JUnit.TaskControllerTest.updateTask_put_responseEntity" />
-        <item itemvalue="JUnit.TaskControllerTest.addTask_add_responseEntity" />
-        <item itemvalue="JUnit.TaskControllerTest.getTaskById_get_responseEntity" />
       </list>
     </recent_temporary>
   </component>
@@ -164,6 +164,7 @@
       <updated>1788261573203</updated>
       <workItem from="1788261589829" duration="36345000" />
       <workItem from="1788607656743" duration="17208000" />
+      <workItem from="1788777359958" duration="6856000" />
     </task>
     <servers />
   </component>
