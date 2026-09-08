@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9038f839-9e83-4364-9d53-acb9b1bb5441" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/test/java/com/taskmanager/enterprizetaskmanager/controller/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/src/main/java/com/taskmanager/enterprizetaskmanager/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +162,10 @@
       <updated>1788261573203</updated>
       <workItem from="1788261589829" duration="36345000" />
       <workItem from="1788607656743" duration="17208000" />
-      <workItem from="1788777359958" duration="6856000" />
+      <workItem from="1788777359958" duration="7598000" />
+      <workItem from="1788864482313" duration="148000" />
+      <workItem from="1788865583518" duration="214000" />
+      <workItem from="1788865986404" duration="819000" />
     </task>
     <servers />
   </component>
