@@ -34,3 +34,5 @@ build/
 ### propertieses ###
 application.properties
 application-dev.properties
+
+compose.yaml

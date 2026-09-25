@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9038f839-9e83-4364-9d53-acb9b1bb5441" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EnterprizeTaskManager/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnterprizeTaskManager/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/EnterprizeTaskManager/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +168,7 @@
       <workItem from="1788864482313" duration="148000" />
       <workItem from="1788865583518" duration="214000" />
       <workItem from="1788865986404" duration="819000" />
+      <workItem from="1790327141407" duration="265000" />
     </task>
     <servers />
   </component>
